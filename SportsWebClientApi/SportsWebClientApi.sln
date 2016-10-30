@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsWebClientApi", "SportsWebClientApi\SportsWebClientApi.csproj", "{05AB443E-BBA3-4D30-AC20-A2F32840DBBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsWebDtos", "..\SportsWebDtos\SportsWebDtos\SportsWebDtos.csproj", "{7C90C7B4-26D7-4C5A-954A-BBF4EF3B8BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTester", "ApiTester\ApiTester.csproj", "{E6C32523-AC15-42DB-B59D-CE3180981597}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05AB443E-BBA3-4D30-AC20-A2F32840DBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05AB443E-BBA3-4D30-AC20-A2F32840DBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05AB443E-BBA3-4D30-AC20-A2F32840DBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05AB443E-BBA3-4D30-AC20-A2F32840DBBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C90C7B4-26D7-4C5A-954A-BBF4EF3B8BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C90C7B4-26D7-4C5A-954A-BBF4EF3B8BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C90C7B4-26D7-4C5A-954A-BBF4EF3B8BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C90C7B4-26D7-4C5A-954A-BBF4EF3B8BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C32523-AC15-42DB-B59D-CE3180981597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C32523-AC15-42DB-B59D-CE3180981597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C32523-AC15-42DB-B59D-CE3180981597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C32523-AC15-42DB-B59D-CE3180981597}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
