@@ -4,6 +4,7 @@ using AuthorizationServer.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SportsWebDtos;
 
 namespace AuthorizationServer.Controllers {
     [Route("api")]
@@ -16,13 +17,13 @@ namespace AuthorizationServer.Controllers {
 
         [Authorize(ActiveAuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
         [HttpGet("message")]
-        public async Task<IActionResult> GetMessage() {
+        public async Task<IActionResult>GetMessage() {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) {
                 return BadRequest();
             }
 
-            return Content($"{user.UserName} has been successfully authenticated.");
+            return new JsonResult(new ObjectTest() { testMessage = $"{user.UserName} has been successfully authenticated." });
         }
     }
 }

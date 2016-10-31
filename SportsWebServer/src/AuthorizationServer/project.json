@@ -1,4 +1,4 @@
-﻿{
+{
   "buildOptions": {
     "emitEntryPoint": true,
     "warningsAsErrors": true,
@@ -33,13 +33,22 @@
   "frameworks": {
     "net451": {
       "dependencies": {
-        "Microsoft.NETCore.Platforms": "1.0.1"
+        "Microsoft.NETCore.Platforms": "1.0.1",
+        "SportsWebDtos": {
+          "target": "project"
+        }
       }
     },
 
     "netcoreapp1.0": {
       "dependencies": {
-        "Microsoft.NETCore.App": { "type": "platform", "version": "1.0.0" }
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0"
+        },
+        "SportsWebDtos": {
+          "target": "project"
+        }
       },
 
       "imports": [

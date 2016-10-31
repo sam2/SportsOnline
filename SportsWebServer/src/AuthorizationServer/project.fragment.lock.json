@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "SportsWebDtos/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5",
+      "compile": {
+        "bin/Debug/SportsWebDtos.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/SportsWebDtos.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/SportsWebDtos.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}
