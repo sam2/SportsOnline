@@ -20,18 +20,20 @@ namespace SportsWebClientApi
     public class HttpRequestHelper
     {      
 
-        public static async Task InterPretResponse<T>(HttpResponseMessage response, Action<T> onSuccess, Action<ErrorResult> onFail)
+        public static async Task SerializeResponseContent<T>(HttpResponseMessage response, Action<T> onSuccess, Action<ErrorResult> onFail)
         {
             string json = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
-            {                
-                T obj = JsonConvert.DeserializeObject<T>(json);
-                if (obj != null)
+            {       
+                try
                 {
+                    T obj = JsonConvert.DeserializeObject<T>(json);
                     onSuccess(obj);
-                }
-                else
-                    onFail(JsonConvert.DeserializeObject<ErrorResult>(json));
+                }         
+                catch
+                {
+                    onFail(new ErrorResult() { error = "failed to deserialize", error_description = "" });
+                }                
             }
             else onFail(JsonConvert.DeserializeObject<ErrorResult>(json));
             
@@ -57,18 +59,18 @@ namespace SportsWebClientApi
             });
 
             HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
-            await InterPretResponse<T>(response, onSucess, onFail);
+            await SerializeResponseContent<T>(response, onSucess, onFail);
             
         }
 
-        public static async Task<HttpResponseMessage> GetResourceAsync(HttpClient client, string token)
+        public static async Task GetResourceAsync<T>(HttpClient client, string token, Action<T> onSuccess, Action<ErrorResult> onFail)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:58795/api/message");
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);          
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
 
-            return response;
+            await SerializeResponseContent<T>(response, onSuccess, onFail);
         }
     }
 }

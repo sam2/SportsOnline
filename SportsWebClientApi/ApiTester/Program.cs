@@ -19,26 +19,28 @@ namespace ApiTester
 
             const string email = "test@account.com", password = "Test!11";
 
-            await HttpRequestHelper.CreateAccountAsync(client, email, password);
+            //await HttpRequestHelper.CreateAccountAsync(client, email, password);
 
-            TokenAuthentication.Login(email, password, OnSuccess, OnFail);
+            SportsWebClient.Login(email, password, OnLoginSuccess, OnFail);
             while (!loggedIn) {; }
-
             
             Console.WriteLine("Access token: {0}", token);
 
             Console.WriteLine();
 
-            var resource = await HttpRequestHelper.GetResourceAsync(client, token);
-
-            
+            await HttpRequestHelper.GetResourceAsync<Object>(client, token, OnGetResourceSuccess, OnFail);            
            
-            Console.WriteLine("API response: {0}", resource);
+            
 
             Console.ReadLine();
         }
 
-        public static void OnSuccess(LoginResponse s)
+        public static void OnGetResourceSuccess(Object s)
+        {
+            Console.WriteLine("API response: {0}", s);
+        }
+
+        public static void OnLoginSuccess(LoginResponse s)
         {
             Console.WriteLine("success");
             token = s.access_token;

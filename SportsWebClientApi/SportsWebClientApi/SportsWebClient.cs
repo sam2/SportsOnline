@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace SportsWebClientApi
 {
-    public class TokenAuthentication
+    public class SportsWebClient
     {
         const string k_url = "";
 
