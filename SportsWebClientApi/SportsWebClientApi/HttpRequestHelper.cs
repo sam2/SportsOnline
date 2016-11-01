@@ -11,11 +11,7 @@ using System.Threading.Tasks;
 
 namespace SportsWebClientApi
 {
-    public class ErrorResult
-    {
-        public string error;
-        public string error_description;
-    }
+    
 
     public class HttpRequestHelper
     {      

@@ -48,8 +48,7 @@
         },
         "SportsWebDtos": {
           "target": "project"
-        }
-      },
+        }      },
 
       "imports": [
         "dnxcore50",

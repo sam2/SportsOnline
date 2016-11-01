@@ -5,7 +5,9 @@ using System.Text;
 
 namespace SportsWebDtos
 {
-    public class Class1
+    public class ErrorResult
     {
+        public string error;
+        public string error_description;
     }
 }

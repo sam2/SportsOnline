@@ -12,4 +12,11 @@ namespace SportsWebDtos
         public string access_token { get; set; }
         public int expires_in { get; set; }
     }
+
+    public class LoginRequest
+    {
+        public string username;
+        public string password;
+        public string grant_type = "password";
+    }
 }

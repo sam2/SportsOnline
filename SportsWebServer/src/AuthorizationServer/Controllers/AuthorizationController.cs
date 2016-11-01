@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OpenIddict;
+using SportsWebDtos;
 
 namespace AuthorizationServer {
     public class AuthorizationController : Controller {
@@ -36,10 +37,10 @@ namespace AuthorizationServer {
         public async Task<IActionResult> Exchange(OpenIdConnectRequest request) {
             if (request.IsPasswordGrantType()) {
                 var user = await _userManager.FindByNameAsync(request.Username);
-                if (user == null) {
+                if (user == null) {                    
                     return BadRequest(new OpenIdConnectResponse {
                         Error = OpenIdConnectConstants.Errors.InvalidGrant,
-                        ErrorDescription = "The username/password couple is invalid."
+                        ErrorDescription = "The username does not exist."
                     });
                 }
 
@@ -51,19 +52,19 @@ namespace AuthorizationServer {
                     });
                 }
 
-                // Reject the token request if two-factor authentication has been enabled by the user.
+                /* Reject the token request if two-factor authentication has been enabled by the user.
                 if (_userManager.SupportsUserTwoFactor && await _userManager.GetTwoFactorEnabledAsync(user)) {
                     return BadRequest(new OpenIdConnectResponse {
                         Error = OpenIdConnectConstants.Errors.InvalidGrant,
                         ErrorDescription = "The specified user is not allowed to sign in."
                     });
-                }
+                }*/
 
                 // Ensure the user is not already locked out.
                 if (_userManager.SupportsUserLockout && await _userManager.IsLockedOutAsync(user)) {
                     return BadRequest(new OpenIdConnectResponse {
                         Error = OpenIdConnectConstants.Errors.InvalidGrant,
-                        ErrorDescription = "The username/password couple is invalid."
+                        ErrorDescription = "The specified user is locked out."
                     });
                 }
 

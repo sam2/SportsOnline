@@ -301,3 +301,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+SportsWebServer/src/AuthorizationServer/project.fragment.lock.json
