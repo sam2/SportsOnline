@@ -10,7 +10,7 @@ namespace AuthorizationServer {
         public void ConfigureServices(IServiceCollection services) {
             services.AddMvc();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase());
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Filename=./users.db"));
             
             var policy = new CorsPolicy();
 

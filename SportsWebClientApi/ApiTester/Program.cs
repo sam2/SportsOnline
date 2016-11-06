@@ -20,6 +20,7 @@ namespace ApiTester
 
             const string username = "test@account.com", password = "Test!11";
 
+            //await HttpRequestHelper.CreateAccountAsync(client, username, password);
 
             if (await SportsWebClient.Login(username, password))
             {
