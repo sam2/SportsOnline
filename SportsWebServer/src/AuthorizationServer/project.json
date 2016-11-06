@@ -16,6 +16,7 @@
   "dependencies": {
     "AspNet.Security.OAuth.Introspection": "1.0.0-alpha2-final",
     "AspNet.Security.OAuth.Validation": "1.0.0-alpha2-final",
+    "Microsoft.AspNetCore.Cors": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -33,6 +34,7 @@
   "frameworks": {
     "net451": {
       "dependencies": {
+        "Microsoft.AspNet.WebApi.Cors": "5.2.3",
         "Microsoft.NETCore.Platforms": "1.0.1",
         "SportsWebDtos": {
           "target": "project"

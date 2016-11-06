@@ -1,5 +1,6 @@
 ﻿using AuthorizationServer.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,15 @@ namespace AuthorizationServer {
             services.AddMvc();
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase());
+            
+            var policy = new CorsPolicy();
+
+            policy.Headers.Add("*");
+            policy.Methods.Add("*");
+            policy.Origins.Add("*");
+            policy.SupportsCredentials = true;
+
+            services.AddCors(op => op.AddPolicy("mypolicy", policy));
 
             // Register the Identity services.
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -60,6 +70,7 @@ namespace AuthorizationServer {
 
         public void Configure(IApplicationBuilder app) {
             app.UseDeveloperExceptionPage();
+           
 
             // Add a middleware used to validate access
             // tokens and protect the API endpoints.
@@ -83,6 +94,11 @@ namespace AuthorizationServer {
             app.UseMvcWithDefaultRoute();
 
             app.UseWelcomePage();
+
+            
+            app.UseCors("mypolicy");
+
+            
         }
     }
 }

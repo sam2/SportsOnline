@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OpenIddict;
 using SportsWebDtos;
+using Microsoft.AspNetCore.Cors;
 
 namespace AuthorizationServer {
     public class AuthorizationController : Controller {

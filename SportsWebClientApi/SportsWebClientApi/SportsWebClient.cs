@@ -10,7 +10,7 @@ namespace SportsWebClientApi
 {
     public class SportsWebClient
     {
-        const string k_url = "http://localhost:58795/";
+        const string k_url = "http://localhost:5000/";
 
         private static string authToken = "";
 

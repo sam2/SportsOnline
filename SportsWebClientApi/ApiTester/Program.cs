@@ -21,7 +21,7 @@ namespace ApiTester
             const string username = "test@account.com", password = "Test!11";
 
 
-            if(await SportsWebClient.Login(username, password))
+            if (await SportsWebClient.Login(username, password))
             {
                 Console.WriteLine(username + " is logged in.");
             }     

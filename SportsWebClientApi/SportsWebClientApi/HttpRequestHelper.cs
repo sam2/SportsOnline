@@ -37,7 +37,7 @@ namespace SportsWebClientApi
 
         public static async Task CreateAccountAsync(HttpClient client, string email, string password)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:58795/Account/Register");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5000/Account/Register");
             request.Content = new StringContent(JsonConvert.SerializeObject(new { email, password }), Encoding.UTF8, "application/json");
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
