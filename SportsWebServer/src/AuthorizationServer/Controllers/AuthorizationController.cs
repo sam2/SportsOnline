@@ -19,6 +19,7 @@ using SportsWebDtos;
 using Microsoft.AspNetCore.Cors;
 
 namespace AuthorizationServer {
+    [EnableCors("mypolicy")]
     public class AuthorizationController : Controller {
         private readonly OpenIddictApplicationManager<OpenIddictApplication> _applicationManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
